@@ -3,11 +3,23 @@ import DesignSystem
 
 struct HomeView: View {
     @State var pokemonViewModel = PokemonViewModel()
+    @State private var searchText = ""
+    
+    var filteredPokemon: [Pokemon] {
+            if searchText.isEmpty {
+                return pokemonViewModel.pokemonList
+            } else {
+                return pokemonViewModel.pokemonList.filter { pokemon in
+                    pokemon.name.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+        }
 
     var body: some View {
         Text("Pokédex")
             .fontWeight(.bold)
-        List(pokemonViewModel.pokemonList) { pokemon in
+        SearchBar(searchText: $searchText)
+        List(filteredPokemon) { pokemon in
             let pokemonDetails = pokemonViewModel.pokemonDetails[pokemon.name]
             
             VStack(alignment: .leading) {
@@ -25,7 +37,7 @@ struct HomeView: View {
             }
         }
         .task {
-            await pokemonViewModel.fetchPokemons(limit: 20)
+            await pokemonViewModel.fetchPokemons(limit: 1000)
         }
     }
 }
