@@ -5,6 +5,7 @@ import SwiftUI
 class PokemonViewModel {
     var counterId: Int = 1
     var pokemonsResponse: Pokemons?
+    var pokemonDetails: [String: PokemonDetail] = [:]
     var limit: Int = 10
     
     var pokemonList: [Pokemon] {
@@ -25,9 +26,29 @@ class PokemonViewModel {
             }
             
             let decoded = try JSONDecoder().decode(Pokemons.self, from: data)
-            pokemonsResponse = decoded
+            
+            await MainActor.run {
+            self.pokemonsResponse = decoded
+            }
         } catch {
             print("Error fetching data: \(error)")
+        }
+    }
+    
+    func fetchPokemon(for pokemon: Pokemon) async {
+        guard let url = URL(string: pokemon.url) else {
+            return
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let decoded = try JSONDecoder().decode(PokemonDetail.self, from: data)
+        
+            await MainActor.run {
+                self.pokemonDetails[pokemon.name] = decoded
+            }
+        } catch {
+            print("Error on \(pokemon.name): \(error)")
         }
     }
 }
