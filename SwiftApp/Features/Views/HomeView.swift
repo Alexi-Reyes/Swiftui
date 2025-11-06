@@ -32,11 +32,8 @@ struct HomeView: View {
     }
 
     var body: some View {
-        Text("Pokédex")
-            .fontWeight(.bold)
-        SearchBar(searchText: $searchText, selectedType: $selectedType, types: $pokemonTypes)
-        
         NavigationStack {
+            SearchBar(searchText: $searchText, selectedType: $selectedType, types: $pokemonTypes)
             List(filteredPokemon) { pokemon in
                 let pokemonDetails = pokemonViewModel.pokemonDetails[pokemon.name]
                 
@@ -57,6 +54,7 @@ struct HomeView: View {
             .task {
                 await pokemonViewModel.fetchPokemons(limit: 1000)
             }
+            .navigationTitle(Text("Pokédex").fontWeight(.bold))
         }
     }
 }
