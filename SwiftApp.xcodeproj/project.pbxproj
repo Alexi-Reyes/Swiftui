@@ -8,28 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		F854FAD32EBB4D300086E107 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = F854FAD22EBB4D300086E107 /* DesignSystem */; };
+		F89A86842EBCF36F00844865 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F89A867E2EBCF36F00844865 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F8554D1F2EBB41AE002C6950 /* SwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F89A867E2EBCF36F00844865 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F854FAD52EBB4D410086E107 /* Exceptions for "SwiftApp" folder in "SwiftApp" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				/Users/ar222896/Desktop/SwiftApp/SwiftApp/DesignSystem,
-			);
-			target = F8554D1E2EBB41AE002C6950 /* SwiftApp */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F8554D212EBB41AE002C6950 /* SwiftApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F854FAD52EBB4D410086E107 /* Exceptions for "SwiftApp" folder in "SwiftApp" target */,
-			);
 			path = SwiftApp;
 			sourceTree = "<group>";
 		};
@@ -57,6 +46,7 @@
 		F8554D162EBB41AE002C6950 = {
 			isa = PBXGroup;
 			children = (
+				F89A867E2EBCF36F00844865 /* .gitignore */,
 				F8554D212EBB41AE002C6950 /* SwiftApp */,
 				F854FAD62EBB4D4A0086E107 /* Frameworks */,
 				F8554D202EBB41AE002C6950 /* Products */,
@@ -139,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F89A86842EBCF36F00844865 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

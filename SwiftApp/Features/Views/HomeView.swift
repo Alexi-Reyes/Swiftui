@@ -32,28 +32,29 @@ struct HomeView: View {
     }
 
     var body: some View {
-        Text("Pokédex")
-            .fontWeight(.bold)
-        SearchBar(searchText: $searchText, selectedType: $selectedType, types: $pokemonTypes)
-        List(filteredPokemon) { pokemon in
-            let pokemonDetails = pokemonViewModel.pokemonDetails[pokemon.name]
-            
-            VStack(alignment: .leading) {
-                PokemonCard(
-                    name: pokemon.name.capitalized,
-                    type1: pokemonDetails?.types.first?.type.name ?? "unknown",
-                    type2: (pokemonDetails?.types.count ?? 0 > 1) ? pokemonDetails?.types.last?.type.name : nil,
-                    imageURL: pokemonDetails?.sprites.frontDefaultURL,
-                )
-            }
-            .task {
-                if pokemonViewModel.pokemonDetails[pokemon.name] == nil {
+        NavigationStack {
+            SearchBar(searchText: $searchText, selectedType: $selectedType, types: $pokemonTypes)
+            List(filteredPokemon) { pokemon in
+                let pokemonDetails = pokemonViewModel.pokemonDetails[pokemon.name]
+                
+                VStack(alignment: .leading) {
+                    NavigationLink(destination: PokeDescriptionView(pokeName: pokemon.name)) {
+                        PokemonCard(
+                            name: pokemon.name.capitalized,
+                            type1: pokemonDetails?.types.first?.type.name ?? "unknown",
+                            type2: (pokemonDetails?.types.count ?? 0 > 1) ? pokemonDetails?.types.last?.type.name : nil,
+                            imageURL: pokemonDetails?.sprites.frontDefaultURL,
+                        )
+                    }
+                }
+                .task {
                     await pokemonViewModel.fetchPokemon(for: pokemon)
                 }
             }
-        }
-        .task {
-            await pokemonViewModel.fetchPokemons(limit: 1000)
+            .task {
+                await pokemonViewModel.fetchPokemons(limit: 1000)
+            }
+            .navigationTitle(Text("Pokédex").fontWeight(.bold))
         }
     }
 }
