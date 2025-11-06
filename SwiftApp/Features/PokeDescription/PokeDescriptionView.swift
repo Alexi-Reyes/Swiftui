@@ -21,6 +21,9 @@ struct PokeDescriptionView: View {
                 ImagePokemonView()
                     .offset(y: geometry.size.height * 0.27)
             }
+//            List(pokeDescriptionViewModel.types) {
+//                
+//            }
         }
     }
 }

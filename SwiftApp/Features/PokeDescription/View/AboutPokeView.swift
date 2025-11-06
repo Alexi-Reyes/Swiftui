@@ -21,6 +21,7 @@ struct AboutPokeView: View {
                         Text("Capacity3 : ")
                     }
                     .padding(.leading)
+                    Spacer()
                     
                     VStack(alignment: .leading, spacing: 20){
                         Text("Dragon")
@@ -30,13 +31,13 @@ struct AboutPokeView: View {
                         Text("3")
                     }
                     .padding(.horizontal)
+                    Spacer()
                     
                 }
                 Spacer()
             }
             .background(.gray)
             .padding(.top, 20)
-//            .frame(width: .infinity, height: .infinity)
             .frame(maxWidth: .infinity)
         }
         .background(.orange)
