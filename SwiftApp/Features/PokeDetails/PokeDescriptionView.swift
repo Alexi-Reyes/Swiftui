@@ -11,14 +11,14 @@ struct PokeDescriptionView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .top){
-                HeaderPokeDetailView()
+                HeaderPokeDetailView(pokeName: pokeName)
                 Spacer()
 
-                AboutPokeView()
+                AboutPokeView(pokeName: pokeName)
                     .frame(height: geometry.size.height * 0.5)
                     .offset(y: geometry.size.height * 0.5)
 
-                ImagePokemonView()
+                ImagePokemonView(pokeName: pokeName)
                     .offset(y: geometry.size.height * 0.27)
             }
 //            List(pokeDescriptionViewModel.types) {
@@ -30,5 +30,5 @@ struct PokeDescriptionView: View {
 
 
 #Preview {
-    PokeDescriptionView()
+    PokeDescriptionView(pokeName: "gengar")
 }

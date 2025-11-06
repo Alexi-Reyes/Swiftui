@@ -2,11 +2,12 @@ import SwiftUI
 
 struct HeaderPokeDetailView: View {
     @State var pokemonDetailViewModel = PokemonDetailViewModel()
+    @State var pokeName = ""
     
     var body: some View {
         VStack(spacing: 10){
             HStack(alignment: .top){
-                Text("\(pokemonDetailViewModel.id)")
+                Text(pokeName)
                     .font(.title)
                     .bold()
                     .padding(.leading)
@@ -23,11 +24,11 @@ struct HeaderPokeDetailView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.green)
         .task {
-            await pokemonDetailViewModel.fetchPokemonDetails(id: pokemonDetailViewModel.id)
+            await pokemonDetailViewModel.fetchPokemonDetails(pokeName: pokeName)
         }
     }
 }
 
 #Preview {
-    HeaderPokeDetailView()
+    HeaderPokeDetailView(pokeName: "gengar")
 }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AboutPokeView: View {
     @State var pokemonDetailViewModel = PokemonDetailViewModel()
+    @State var pokeName: String = ""
     
     var body: some View {
         VStack(spacing: 10){
@@ -23,7 +24,7 @@ struct AboutPokeView: View {
         .background(.orange)
 //        .cornerRadius(25)
         .task {
-            await pokemonDetailViewModel.fetchPokemonDetails(id: "gengar")
+            await pokemonDetailViewModel.fetchPokemonDetails(pokeName: pokeName)
         }
     }
     

@@ -17,11 +17,11 @@ class PokemonDetailViewModel {
             displayableDic.append(("Speed :", "\(pokemonDetail.stats[5].base_stat)"))
         }
     }
-    var id = "gengar"
+    var pokeName = ""
     var displayableDic = [(String, String)]()
 
-    func fetchPokemonDetails(id: String) async {
-        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)") else {
+    func fetchPokemonDetails(pokeName: String) async {
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(pokeName)") else {
             print("Invalid URL")
             return
         }

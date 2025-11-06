@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ImagePokemonView: View {
     @State var pokemonDetailViewModel = PokemonDetailViewModel()
+    @State var pokeName: String = ""
     
     var body: some View {
         VStack(alignment: .center , spacing: 10){
@@ -26,11 +27,11 @@ struct ImagePokemonView: View {
             .padding(.bottom, -20)
         
             .task {
-                await pokemonDetailViewModel.fetchPokemonDetails(id: "gengar")
+                await pokemonDetailViewModel.fetchPokemonDetails(pokeName: pokeName)
             }
     }
 }
 
 #Preview {
-    PokeDescriptionView()
+    PokeDescriptionView(pokeName: "gengar")
 }
