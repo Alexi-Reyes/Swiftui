@@ -1,37 +1,38 @@
 import SwiftUI
 
-struct Pokemon: Codable, Identifiable {
-    var id: String { name }
-    let name: String
-    let url: String
+public struct Pokemon: Codable, Identifiable {
+    public var id: String { name }
+    public let name: String
+    public let url: String
 }
 
-struct Pokemons: Decodable {
-    let count: Int
-    let next: String?
-    let previous: String?
-    let results: [Pokemon]
+public struct Pokemons: Decodable {
+    public let count: Int
+    public let next: String?
+    public let previous: String?
+    public let results: [Pokemon]
 }
 
-struct PokemonDetail: Decodable {
+public struct PokemonDetail: Decodable {
+    let id: Int
     let name: String
     let abilities: [AbilityWrapper]
     let sprites: Sprites
     let types: [Type]
 }
 
-struct AbilityWrapper: Decodable {
+public struct AbilityWrapper: Decodable {
     let ability: Ability
     let is_hidden: Bool
     let slot: Int
 }
 
-struct Ability: Decodable {
+public struct Ability: Decodable {
     let name: String
     let url: String
 }
 
-struct Type: Decodable {
+public struct Type: Decodable {
     let slot: Int
     let type: TypeWrapper
 }
@@ -53,4 +54,9 @@ struct Sprites: Decodable {
         guard let urlString = frontDefault else { return nil }
         return URL(string: urlString)
     }
+}
+
+protocol PokemonFetching {
+    func fetchPokemons(limit: Int) async throws -> Pokemons
+    func fetchPokemon(url: String) async throws -> PokemonDetail
 }
