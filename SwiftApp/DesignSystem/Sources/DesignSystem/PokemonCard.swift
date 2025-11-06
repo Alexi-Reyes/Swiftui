@@ -48,7 +48,7 @@ public struct PokemonCard: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .center)
-        .background(Color(.white))
+        .background(Color.fromPokemonType(type1).opacity(0.2))
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.1), radius: 6, x: 0, y: 3)
         .padding()
