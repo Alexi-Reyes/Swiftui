@@ -19,6 +19,7 @@ public struct PokemonDetail: Decodable {
     let abilities: [AbilityWrapper]
     let sprites: Sprites
     let types: [Type]
+    let stats: [Stat]
 }
 
 public struct AbilityWrapper: Decodable {
@@ -59,4 +60,9 @@ struct Sprites: Decodable {
 protocol PokemonFetching {
     func fetchPokemons(limit: Int) async throws -> Pokemons
     func fetchPokemon(url: String) async throws -> PokemonDetail
+}
+
+struct Stat: Decodable {
+    let base_stat: Int
+    let effort: Int
 }

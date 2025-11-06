@@ -47,7 +47,7 @@ struct HomeView: View {
                 )
             }
             .task {
-                if pokemonViewModel.pokemonDetails[pokemon.name] == nil {
+                if pokemonViewModel.pokemonDetails[pokemon.name] != nil {
                     await pokemonViewModel.fetchPokemon(for: pokemon)
                 }
             }

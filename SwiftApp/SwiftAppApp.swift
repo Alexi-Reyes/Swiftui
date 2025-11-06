@@ -4,7 +4,12 @@ import SwiftUI
 struct SwiftAppApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            NavigationStack {
+                NavigationLink(destination: Text("Details")) {
+                    PokeDescriptionView()
+                }
+            }
+//            HomeView()
         }
     }
 }

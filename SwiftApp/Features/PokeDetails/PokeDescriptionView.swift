@@ -11,13 +11,13 @@ struct PokeDescriptionView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .top){
-                HeaderPokeDescriptionView()
+                HeaderPokeDetailView()
                 Spacer()
 
                 AboutPokeView()
                     .frame(height: geometry.size.height * 0.5)
                     .offset(y: geometry.size.height * 0.5)
-                
+
                 ImagePokemonView()
                     .offset(y: geometry.size.height * 0.27)
             }

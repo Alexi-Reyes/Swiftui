@@ -14,22 +14,9 @@
 		F8554D1F2EBB41AE002C6950 /* SwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F854FAD52EBB4D410086E107 /* Exceptions for "SwiftApp" folder in "SwiftApp" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				/Users/ar222896/Desktop/SwiftApp/SwiftApp/DesignSystem,
-			);
-			target = F8554D1E2EBB41AE002C6950 /* SwiftApp */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F8554D212EBB41AE002C6950 /* SwiftApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				F854FAD52EBB4D410086E107 /* Exceptions for "SwiftApp" folder in "SwiftApp" target */,
-			);
 			path = SwiftApp;
 			sourceTree = "<group>";
 		};
