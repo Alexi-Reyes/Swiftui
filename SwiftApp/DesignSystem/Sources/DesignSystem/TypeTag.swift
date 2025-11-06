@@ -19,13 +19,13 @@ struct TypeTagModifier: ViewModifier {
 }
 
 extension View {
-    func pokemonTypeTagStyle(color: Color) -> some View {
+    public func pokemonTypeTagStyle(color: Color) -> some View {
         self.modifier(TypeTagModifier(typeColor: color))
     }
 }
 
 extension Color {
-    static func fromPokemonType(_ type: String) -> Color {
+    public static func fromPokemonType(_ type: String) -> Color {
         let normalizedType = type.lowercased()
         switch normalizedType {
         case "fire": return Color(red: 0.93, green: 0.30, blue: 0.19)

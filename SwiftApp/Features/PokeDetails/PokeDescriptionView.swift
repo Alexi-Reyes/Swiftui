@@ -15,11 +15,12 @@ struct PokeDescriptionView: View {
                 Spacer()
 
                 AboutPokeView(pokeName: pokeName)
-                    .frame(height: geometry.size.height * 0.5)
+                    .frame(height: geometry.size.height * 0.55)
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
+//                    .background(.red)
                     .offset(y: geometry.size.height * 0.5)
-
                 ImagePokemonView(pokeName: pokeName)
-                    .offset(y: geometry.size.height * 0.27)
+                    .offset(y: geometry.size.height * 0.26)
             }
 //            List(pokeDescriptionViewModel.types) {
 //                

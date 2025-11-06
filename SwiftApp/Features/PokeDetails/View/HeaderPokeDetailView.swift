@@ -1,4 +1,5 @@
 import SwiftUI
+import DesignSystem
 
 struct HeaderPokeDetailView: View {
     @State var pokemonDetailViewModel = PokemonDetailViewModel()
@@ -15,17 +16,24 @@ struct HeaderPokeDetailView: View {
 //                    Spacer()
                 }
                 .frame(width: .infinity)
-                .padding()
+                .padding(.bottom ,10)
 
             Text("\(pokemonDetailViewModel.pokemonDetail?.types.first?.type.name ?? "no type")")
-                    .padding(.leading)
+                    .bold()
+                    .font(.system(size: 25))
+                    .pokemonTypeTagStyle(color: .fromPokemonType(pokemonDetailViewModel.pokemonDetail?.types.first?.type.name ?? "unknown"))
                 Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.green)
+        .background(Image(.detailBg).scaledToFit())
         .task {
             await pokemonDetailViewModel.fetchPokemonDetails(pokeName: pokeName)
         }
+    }
+    
+    @ViewBuilder func background() -> any View {
+        Image(.detailBg)
+            .scaledToFit()
     }
 }
 

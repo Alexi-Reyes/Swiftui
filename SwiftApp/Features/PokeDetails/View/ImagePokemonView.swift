@@ -11,6 +11,7 @@ struct ImagePokemonView: View {
                 case .success(let image):
                     image
                         .resizable()
+                        .scaledToFit()
                 case .failure(let error):
                     Text("Error: \(error)")
                 case .empty:
@@ -18,13 +19,9 @@ struct ImagePokemonView: View {
                 }
             }
             .frame(width: 250, height: 250)
-//            AsyncImage(url: pokemonDetailViewModel.pokemonDetail?.sprites.frontDefaultURL)
-//                .frame(width: 200, height: 200)
-//                .scaledToFit()
-            }
-//            .frame(maxWidth: .infinity)
-//            .background(.purple.opacity(0.9))
-            .padding(.bottom, -20)
+        }
+        .padding(.top, -60)
+        .padding(.leading, 20)
         
             .task {
                 await pokemonDetailViewModel.fetchPokemonDetails(pokeName: pokeName)

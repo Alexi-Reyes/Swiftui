@@ -13,15 +13,17 @@ struct AboutPokeView: View {
             //                    .frame(maxWidth: .infinity, alignment: .center)
             //                    .background(Color.gray.opacity(0.4))
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 100), alignment: .leading), count: 2), spacing: 10){
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 100), alignment: .leading), count: 2), spacing: 2){
                 ForEach(pokemonDetailViewModel.displayableDic, id: \.0) { value, key in
                     buildAttribute(text:value, text2: key)
-                        .padding(15)
+                        .padding(2)
+                        .cornerRadius(15)
                 }
+                .padding()
             }
             .padding(.top, 20)
         }
-        .background(.orange)
+        .background(.white)
 //        .cornerRadius(25)
         .task {
             await pokemonDetailViewModel.fetchPokemonDetails(pokeName: pokeName)
@@ -34,10 +36,10 @@ struct AboutPokeView: View {
         Text(text)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading)
-            .background(.red)
+//            .background(.red)
         Text(text2)
             .frame(maxWidth: .infinity, alignment: .center)
-            .background(.blue)
+//            .background(.blue)
         //        }
     }
 }
