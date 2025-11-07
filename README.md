@@ -13,8 +13,8 @@ cd Swiftui/
 
 ## Equipe
 
-Enguerrand Cousin
-Alexi Reyes
+- Enguerrand Cousin
+- Alexi Reyes
 
 ## Point d'amélioration
 
