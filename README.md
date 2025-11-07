@@ -11,6 +11,11 @@ git clone git@github.com:Alexi-Reyes/Swiftui.git
 cd Swiftui/
 ```
 
+## Equipe
+
+Enguerrand Cousin
+Alexi Reyes
+
 ## Point d'amélioration
 
 Le projet possède un package avec DesignSystem, mais il pourrait avoir plus de composants et être plus générique afin de permettre de les réutiliser dans d'autres projets. Rajouter plus de packages par rapport aux features ou pages. Rajouter plus de composants serait bien.
